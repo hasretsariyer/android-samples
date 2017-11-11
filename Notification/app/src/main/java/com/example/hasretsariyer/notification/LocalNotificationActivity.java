@@ -1,5 +1,6 @@
 package com.example.hasretsariyer.notification;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -37,8 +38,11 @@ public class LocalNotificationActivity extends AppCompatActivity {
     }
 
     public void notificationHandler(Intent intent) {
+        Log.i("@@TAG", "intent.getExtras(): " + intent.getExtras());
         if(intent != null && intent.getExtras() != null && intent.getExtras().containsKey("RESPONSE_TYPE")) {
             String responseType = intent.getExtras().get("RESPONSE_TYPE").toString();
+            Log.i("@@TAG", "RESPONSETYPE: " + responseType);
+
             if(responseType.equals("YES")) {
                 cancelNotification();
             }
@@ -59,13 +63,23 @@ public class LocalNotificationActivity extends AppCompatActivity {
         yesReceive.putExtra("RESPONSE_TYPE", "YES");
         PendingIntent pendingIntentYes = PendingIntent.getActivity(this, YES_REQUEST_CODE, yesReceive, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.addAction(R.drawable.yes, "Yes", pendingIntentYes);
-
+        yesReceive.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         Intent noReceive = new Intent(this, LocalNotificationActivity.class);
         yesReceive.putExtra("RESPONSE_TYPE", "NO");
         PendingIntent pendingIntentNo = PendingIntent.getActivity(this, NO_REQUEST_CODE, noReceive, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.addAction(R.drawable.no, "No", pendingIntentNo);
-        notificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        noReceive.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        Notification notification = mBuilder.build();
+        notification.flags  |= Notification.FLAG_ONGOING_EVENT;
+        notificationManager.notify(NOTIFICATION_ID, notification);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
     }
 
     public void cancelNotification() {
