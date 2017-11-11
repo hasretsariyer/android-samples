@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void goLocalNotificationExample(View v) {
         Intent intent = new Intent(this, LocalNotificationActivity.class);
+        startActivity(intent);
+    }
+
+    public void goViewPagerExample(View v) {
+        Intent intent = new Intent(this, ViewPagerActivity.class);
         startActivity(intent);
     }
 }
