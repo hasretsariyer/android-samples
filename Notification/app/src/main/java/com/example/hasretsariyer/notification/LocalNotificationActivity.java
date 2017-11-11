@@ -65,7 +65,6 @@ public class LocalNotificationActivity extends AppCompatActivity {
         yesReceive.putExtra("RESPONSE_TYPE", "NO");
         PendingIntent pendingIntentNo = PendingIntent.getActivity(this, NO_REQUEST_CODE, noReceive, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.addAction(R.drawable.no, "No", pendingIntentNo);
-
         notificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
 

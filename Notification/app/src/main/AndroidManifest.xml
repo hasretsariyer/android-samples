@@ -20,6 +20,7 @@
         <activity
             android:name=".LocalNotificationActivity"
             android:excludeFromRecents="true"
+            android:launchMode="singleTop"
             android:label="@string/title_activity_local_notification_example"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ViewPagerActivity"></activity>
