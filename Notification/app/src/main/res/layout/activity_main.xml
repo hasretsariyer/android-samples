@@ -14,14 +14,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/notificationBtn"
-        android:text="Local Notification Example"
+        android:text="Local Notification Activity"
         android:onClick="goLocalNotificationExample"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/notificationBtn"
-        android:text="View Pager Example"
+        android:text="View Pager Activity"
+        android:id="@+id/viewPagerBtn"
         android:onClick="goViewPagerExample"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewPagerBtn"
+        android:text="Make GET request"
+        android:onClick="httpExample"/>
 
 </RelativeLayout>

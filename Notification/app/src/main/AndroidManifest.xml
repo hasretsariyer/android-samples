@@ -17,12 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".LocalNotificationActivity"
             android:label="@string/title_activity_local_notification_example"
-            android:launchMode="singleTask"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ViewPagerActivity"></activity>
+            android:launchMode="singleTask"/>
+        <activity android:name=".ViewPagerActivity"
+            android:label="@string/title_activity_view_pager_example"
+             />
     </application>
 
 </manifest>
