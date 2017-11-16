@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Notification</string>
+    <string name="app_name">android-samples</string>
+    <string name="samples">Android Samples</string>
     <string name="title_activity_local_notification_example">LocalNotificationActivity</string>
     <string name="title_activity_view_pager_example">ViewPagerActivity</string>
 
